@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Nix.html">\Nix</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">328</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1969176082"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1969176082" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-636362898"></a>
+                                <a href="../namespaces/Nix.html" style="margin-left: 30px; padding-left: 0">Nix</a>
+            </div>
+            <div id="namespace-636362898" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1723968181"></a>
+                                <a href="../namespaces/Nix.Application.html" style="margin-left: 30px; padding-left: 0">Application</a>
+            </div>
+            <div id="namespace-1723968181" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Application.Application.html">Application</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Application.ApplicationError.html">ApplicationError</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Application.ApplicationException.html">ApplicationException</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Application.Control.html">Control</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Application.Controller.html">Controller</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1052864560"></a>
+                                <a href="../namespaces/Nix.Caching.html" style="margin-left: 30px; padding-left: 0">Caching</a>
+            </div>
+            <div id="namespace-1052864560" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Caching.Cache.html">Cache</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-888153015"></a>
+                                <a href="../namespaces/Nix.Config.html" style="margin-left: 30px; padding-left: 0">Config</a>
+            </div>
+            <div id="namespace-888153015" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Config.Configurator.html">Configurator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-553241947"></a>
+                                <a href="../namespaces/Nix.Database.html" style="margin-left: 30px; padding-left: 0">Database</a>
+            </div>
+            <div id="namespace-553241947" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-47719183"></a>
+                                <a href="../namespaces/Nix.Database.Drivers.html" style="margin-left: 30px; padding-left: 0">Drivers</a>
+            </div>
+            <div id="namespace-47719183" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Database.Drivers.MysqlDriver.html">MysqlDriver</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Drivers.MysqliDriver.html">MysqliDriver</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Drivers.PgsqlDriver.html">PgsqlDriver</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Database.IDriver.html">IDriver</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Database.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Db.html">Db</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.PreparedResult.html">PreparedResult</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Result.html">Result</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.ResultNode.html">ResultNode</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Structure.html">Structure</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Table.html">Table</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-676408466"></a>
+                                <a href="../namespaces/Nix.Debugging.html" style="margin-left: 30px; padding-left: 0">Debugging</a>
+            </div>
+            <div id="namespace-676408466" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Debugging.Debugger.html">Debugger</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Debugging.FatalErrorException.html">FatalErrorException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-934338739"></a>
+                                <a href="../namespaces/Nix.DI.html" style="margin-left: 30px; padding-left: 0">DI</a>
+            </div>
+            <div id="namespace-934338739" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.DI.Container.html">Container</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1654532741"></a>
+                                <a href="../namespaces/Nix.Exporting.html" style="margin-left: 30px; padding-left: 0">Exporting</a>
+            </div>
+            <div id="namespace-1654532741" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Exporting.ExcelFactory.html">ExcelFactory</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Exporting.PdfFactory.html">PdfFactory</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1081369438"></a>
+                                <a href="../namespaces/Nix.Forms.html" style="margin-left: 30px; padding-left: 0">Forms</a>
+            </div>
+            <div id="namespace-1081369438" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-592303562"></a>
+                                <a href="../namespaces/Nix.Forms.Controls.html" style="margin-left: 30px; padding-left: 0">Controls</a>
+            </div>
+            <div id="namespace-592303562" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Button.html">Button</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Checkbox.html">Checkbox</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Colorpicker.html">Colorpicker</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Datepicker.html">Datepicker</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.DateTimepicker.html">DateTimepicker</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.File.html">File</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.FormControl.html">FormControl</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Hidden.html">Hidden</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Input.html">Input</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.MultiCheckbox.html">MultiCheckbox</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.MultipleSelect.html">MultipleSelect</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Password.html">Password</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Radio.html">Radio</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Reset.html">Reset</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Select.html">Select</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Submit.html">Submit</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Text.html">Text</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Textarea.html">Textarea</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.UploadedFile.html">UploadedFile</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1126402588"></a>
+                                <a href="../namespaces/Nix.Forms.JsValidators.html" style="margin-left: 30px; padding-left: 0">JsValidators</a>
+            </div>
+            <div id="namespace-1126402588" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Forms.JsValidators.IJsValidator.html">IJsValidator</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Forms.JsValidators.JqueryJsValidator.html">JqueryJsValidator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-174911059"></a>
+                                <a href="../namespaces/Nix.Forms.Renderers.html" style="margin-left: 30px; padding-left: 0">Renderers</a>
+            </div>
+            <div id="namespace-174911059" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Forms.Renderers.IFormRenderer.html">IFormRenderer</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.DivRenderer.html">DivRenderer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.DlRenderer.html">DlRenderer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.EmptyRenderer.html">EmptyRenderer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.FormRenderer.html">FormRenderer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.TableRenderer.html">TableRenderer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Forms.Condition.html">Condition</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Form.html">Form</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Html.html">Html</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Rule.html">Rule</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-235888573"></a>
+                                <a href="../namespaces/Nix.Http.html" style="margin-left: 30px; padding-left: 0">Http</a>
+            </div>
+            <div id="namespace-235888573" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Http.Http.html">Http</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Http.Request.html">Request</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Http.Response.html">Response</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-838377661"></a>
+                                <a href="../namespaces/Nix.Loaders.html" style="margin-left: 30px; padding-left: 0">Loaders</a>
+            </div>
+            <div id="namespace-838377661" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Loaders.AutoLoader.html">AutoLoader</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Loaders.NixLoader.html">NixLoader</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Loaders.RobotLoader.html">RobotLoader</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-205872653"></a>
+                                <a href="../namespaces/Nix.Mail.html" style="margin-left: 30px; padding-left: 0">Mail</a>
+            </div>
+            <div id="namespace-205872653" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Mail.Emailer.html">Emailer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Mail.PHPMailerFactory.html">PHPMailerFactory</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-517169923"></a>
+                                <a href="../namespaces/Nix.Permissions.html" style="margin-left: 30px; padding-left: 0">Permissions</a>
+            </div>
+            <div id="namespace-517169923" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Permissions.IIdentity.html">IIdentity</a></li>
+                                                    <li class="interface"><a href="../classes/Nix.Permissions.IUserHandler.html">IUserHandler</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Permissions.Identity.html">Identity</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.Permission.html">Permission</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.PermissionAssertion.html">PermissionAssertion</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.PermissionRole.html">PermissionRole</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.Resource.html">Resource</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.User.html">User</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1734554695"></a>
+                                <a href="../namespaces/Nix.Routers.html" style="margin-left: 30px; padding-left: 0">Routers</a>
+            </div>
+            <div id="namespace-1734554695" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Routers.Router.html">Router</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2066085175"></a>
+                                <a href="../namespaces/Nix.Sessions.html" style="margin-left: 30px; padding-left: 0">Sessions</a>
+            </div>
+            <div id="namespace-2066085175" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Sessions.Cookie.html">Cookie</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Sessions.Session.html">Session</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Sessions.SessionNamespace.html">SessionNamespace</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-414332388"></a>
+                                <a href="../namespaces/Nix.Templating.html" style="margin-left: 30px; padding-left: 0">Templating</a>
+            </div>
+            <div id="namespace-414332388" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-254128506"></a>
+                                <a href="../namespaces/Nix.Templating.Helpers.html" style="margin-left: 30px; padding-left: 0">Helpers</a>
+            </div>
+            <div id="namespace-254128506" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Templating.Helpers.FilterHelper.html">FilterHelper</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Templating.Helpers.HtmlHelper.html">HtmlHelper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Templating.ITemplate.html">ITemplate</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Templating.AppTemplate.html">AppTemplate</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Templating.Template.html">Template</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1363966298"></a>
+                                <a href="../namespaces/Nix.Utils.html" style="margin-left: 30px; padding-left: 0">Utils</a>
+            </div>
+            <div id="namespace-1363966298" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Utils.Paginator.html">Paginator</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Utils.Tools.html">Tools</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.IComponent.html">IComponent</a></li>
+                                                    <li class="interface"><a href="../classes/Nix.IModel.html">IModel</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Component.html">Component</a></li>
+                                                    <li class="class"><a href="../classes/Nix.NixModel.html">NixModel</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Object.html">Object</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content file">
+                    <nav>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small></small>Submit.php</h1>
+                    <p><em>This file is part of the Nix Framework</em></p>
+                    <p>Copyright (c) 2014 Tomáš Litera</p>
+<p>For the full copyright and license information, please view
+the file license.md that was distributed with this source code.</p>
+
+                    
+                    
+                                        <h2>Classes</h2>
+                    <table class="table table-hover">
+                                            <tr>
+                            <td><a href="../classes/Nix.Forms.Controls.Submit.html">Submit</a></td>
+                            <td><em>Submit Control</em></td>
+                        </tr>
+                                        </table>
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                        
+                        
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                            </table>
+
+                </aside>
+            </div>
+
+            
+            
+        </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Forms\Controls\Submit.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Nix.html">\Nix</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on October 17th, 2014 at 15:16.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

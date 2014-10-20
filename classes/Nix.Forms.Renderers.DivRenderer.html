@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Nix.html">\Nix</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">328</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1497243685"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1497243685" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-33503473"></a>
+                                <a href="../namespaces/Nix.html" style="margin-left: 30px; padding-left: 0">Nix</a>
+            </div>
+            <div id="namespace-33503473" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1966710764"></a>
+                                <a href="../namespaces/Nix.Application.html" style="margin-left: 30px; padding-left: 0">Application</a>
+            </div>
+            <div id="namespace-1966710764" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Application.Application.html">Application</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Application.ApplicationError.html">ApplicationError</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Application.ApplicationException.html">ApplicationException</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Application.Control.html">Control</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Application.Controller.html">Controller</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-932315078"></a>
+                                <a href="../namespaces/Nix.Caching.html" style="margin-left: 30px; padding-left: 0">Caching</a>
+            </div>
+            <div id="namespace-932315078" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Caching.Cache.html">Cache</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-261179669"></a>
+                                <a href="../namespaces/Nix.Config.html" style="margin-left: 30px; padding-left: 0">Config</a>
+            </div>
+            <div id="namespace-261179669" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Config.Configurator.html">Configurator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-705022421"></a>
+                                <a href="../namespaces/Nix.Database.html" style="margin-left: 30px; padding-left: 0">Database</a>
+            </div>
+            <div id="namespace-705022421" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1789229927"></a>
+                                <a href="../namespaces/Nix.Database.Drivers.html" style="margin-left: 30px; padding-left: 0">Drivers</a>
+            </div>
+            <div id="namespace-1789229927" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Database.Drivers.MysqlDriver.html">MysqlDriver</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Drivers.MysqliDriver.html">MysqliDriver</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Drivers.PgsqlDriver.html">PgsqlDriver</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Database.IDriver.html">IDriver</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Database.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Db.html">Db</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.PreparedResult.html">PreparedResult</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Result.html">Result</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.ResultNode.html">ResultNode</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Structure.html">Structure</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Database.Table.html">Table</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1504456507"></a>
+                                <a href="../namespaces/Nix.Debugging.html" style="margin-left: 30px; padding-left: 0">Debugging</a>
+            </div>
+            <div id="namespace-1504456507" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Debugging.Debugger.html">Debugger</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Debugging.FatalErrorException.html">FatalErrorException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-898328496"></a>
+                                <a href="../namespaces/Nix.DI.html" style="margin-left: 30px; padding-left: 0">DI</a>
+            </div>
+            <div id="namespace-898328496" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.DI.Container.html">Container</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1948537901"></a>
+                                <a href="../namespaces/Nix.Exporting.html" style="margin-left: 30px; padding-left: 0">Exporting</a>
+            </div>
+            <div id="namespace-1948537901" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Exporting.ExcelFactory.html">ExcelFactory</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Exporting.PdfFactory.html">PdfFactory</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1827075690"></a>
+                                <a href="../namespaces/Nix.Forms.html" style="margin-left: 30px; padding-left: 0">Forms</a>
+            </div>
+            <div id="namespace-1827075690" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-45056417"></a>
+                                <a href="../namespaces/Nix.Forms.Controls.html" style="margin-left: 30px; padding-left: 0">Controls</a>
+            </div>
+            <div id="namespace-45056417" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Button.html">Button</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Checkbox.html">Checkbox</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Colorpicker.html">Colorpicker</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Datepicker.html">Datepicker</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.DateTimepicker.html">DateTimepicker</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.File.html">File</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.FormControl.html">FormControl</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Hidden.html">Hidden</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Input.html">Input</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.MultiCheckbox.html">MultiCheckbox</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.MultipleSelect.html">MultipleSelect</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Password.html">Password</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Radio.html">Radio</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Reset.html">Reset</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Select.html">Select</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Submit.html">Submit</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Text.html">Text</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.Textarea.html">Textarea</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Controls.UploadedFile.html">UploadedFile</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1343947082"></a>
+                                <a href="../namespaces/Nix.Forms.JsValidators.html" style="margin-left: 30px; padding-left: 0">JsValidators</a>
+            </div>
+            <div id="namespace-1343947082" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Forms.JsValidators.IJsValidator.html">IJsValidator</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Forms.JsValidators.JqueryJsValidator.html">JqueryJsValidator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-115026416"></a>
+                                <a href="../namespaces/Nix.Forms.Renderers.html" style="margin-left: 30px; padding-left: 0">Renderers</a>
+            </div>
+            <div id="namespace-115026416" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Forms.Renderers.IFormRenderer.html">IFormRenderer</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.DivRenderer.html">DivRenderer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.DlRenderer.html">DlRenderer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.EmptyRenderer.html">EmptyRenderer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.FormRenderer.html">FormRenderer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Renderers.TableRenderer.html">TableRenderer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Forms.Condition.html">Condition</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Form.html">Form</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Html.html">Html</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Forms.Rule.html">Rule</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-89153697"></a>
+                                <a href="../namespaces/Nix.Http.html" style="margin-left: 30px; padding-left: 0">Http</a>
+            </div>
+            <div id="namespace-89153697" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Http.Http.html">Http</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Http.Request.html">Request</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Http.Response.html">Response</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2077397613"></a>
+                                <a href="../namespaces/Nix.Loaders.html" style="margin-left: 30px; padding-left: 0">Loaders</a>
+            </div>
+            <div id="namespace-2077397613" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Loaders.AutoLoader.html">AutoLoader</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Loaders.NixLoader.html">NixLoader</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Loaders.RobotLoader.html">RobotLoader</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2140348650"></a>
+                                <a href="../namespaces/Nix.Mail.html" style="margin-left: 30px; padding-left: 0">Mail</a>
+            </div>
+            <div id="namespace-2140348650" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Mail.Emailer.html">Emailer</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Mail.PHPMailerFactory.html">PHPMailerFactory</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1919027903"></a>
+                                <a href="../namespaces/Nix.Permissions.html" style="margin-left: 30px; padding-left: 0">Permissions</a>
+            </div>
+            <div id="namespace-1919027903" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Permissions.IIdentity.html">IIdentity</a></li>
+                                                    <li class="interface"><a href="../classes/Nix.Permissions.IUserHandler.html">IUserHandler</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Permissions.Identity.html">Identity</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.Permission.html">Permission</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.PermissionAssertion.html">PermissionAssertion</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.PermissionRole.html">PermissionRole</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.Resource.html">Resource</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Permissions.User.html">User</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-824715776"></a>
+                                <a href="../namespaces/Nix.Routers.html" style="margin-left: 30px; padding-left: 0">Routers</a>
+            </div>
+            <div id="namespace-824715776" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Routers.Router.html">Router</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-329807639"></a>
+                                <a href="../namespaces/Nix.Sessions.html" style="margin-left: 30px; padding-left: 0">Sessions</a>
+            </div>
+            <div id="namespace-329807639" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Sessions.Cookie.html">Cookie</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Sessions.Session.html">Session</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Sessions.SessionNamespace.html">SessionNamespace</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-700101877"></a>
+                                <a href="../namespaces/Nix.Templating.html" style="margin-left: 30px; padding-left: 0">Templating</a>
+            </div>
+            <div id="namespace-700101877" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1414711563"></a>
+                                <a href="../namespaces/Nix.Templating.Helpers.html" style="margin-left: 30px; padding-left: 0">Helpers</a>
+            </div>
+            <div id="namespace-1414711563" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Templating.Helpers.FilterHelper.html">FilterHelper</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Templating.Helpers.HtmlHelper.html">HtmlHelper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.Templating.ITemplate.html">ITemplate</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Templating.AppTemplate.html">AppTemplate</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Templating.Template.html">Template</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-999497285"></a>
+                                <a href="../namespaces/Nix.Utils.html" style="margin-left: 30px; padding-left: 0">Utils</a>
+            </div>
+            <div id="namespace-999497285" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Nix.Utils.Paginator.html">Paginator</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Utils.Tools.html">Tools</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Nix.IComponent.html">IComponent</a></li>
+                                                    <li class="interface"><a href="../classes/Nix.IModel.html">IModel</a></li>
+                                                                                                    <li class="class"><a href="../classes/Nix.Component.html">Component</a></li>
+                                                    <li class="class"><a href="../classes/Nix.NixModel.html">NixModel</a></li>
+                                                    <li class="class"><a href="../classes/Nix.Object.html">Object</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Nix.Forms.Renderers.html">\Nix\Forms\Renderers</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Nix\Forms\Renderers</small>DivRenderer</h1>
+                    <p><em>Div renderer
+Form renderer which wraps into divs</em></p>
+                    <p>Nix\Object is the ultimate ancestor of all instantiable classes.</p>
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_setForm" class="">setForm()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_setJsValidator" class="">setJsValidator()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_render" class="">render()</a><br />
+                                                                    <a href="../classes/Nix.Object.html#method_extendMethod" class="">extendMethod()</a><br />
+                                                                    <a href="../classes/Nix.Object.html#method_getClass" class="">getClass()</a><br />
+                                                                    <a href="../classes/Nix.Object.html#method_getAncestors" class="">getAncestors()</a><br />
+                                                                    <a href="../classes/Nix.Object.html#method___get" class="">__get()</a><br />
+                                                                    <a href="../classes/Nix.Object.html#method___set" class="">__set()</a><br />
+                                                                    <a href="../classes/Nix.Object.html#method___call" class="">__call()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#property_javascript" class="">$javascript</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.DivRenderer.html#property_wrappers" class="">$wrappers</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_renderForm" class="">renderForm()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_renderStart" class="">renderStart()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_renderEnd" class="">renderEnd()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_renderPart" class="">renderPart()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_renderPair" class="">renderPair()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_renderControl" class="">renderControl()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_renderLabel" class="">renderLabel()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_renderJavascript" class="">renderJavascript()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_getWrapper" class="">getWrapper()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.DivRenderer.html#method_preparePart" class="">preparePart()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.DivRenderer.html#method_preparePair" class="">preparePair()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_prepareControl" class="">prepareControl()</a><br />
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#method_prepareLabel" class="">prepareLabel()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html#property_form" class="">$form</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Nix.Object.html#property_extendMethods" class="">$extendMethods</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Forms.Renderers.DivRenderer.html"><div class="path-wrapper">Forms\Renderers\DivRenderer.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Forms\Renderers</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                        <div class="namespace-wrapper"><a href="../classes/Nix.Object.html">\Nix\Object</a></div>
+                                                                    
+                                        <div class="namespace-wrapper"><a href="../classes/Nix.Forms.Renderers.FormRenderer.html">\Nix\Forms\Renderers\FormRenderer</a></div>
+                                                                                                    <div class="namespace-wrapper">\Nix\Forms\Renderers\DivRenderer</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Tomas Litera     <a href="mailto:tomaslitera@hotmail.com">tomaslitera@hotmail.com</a></p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_javascript" name="property_javascript" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$javascript</h3>
+                <pre class="signature">$javascript : \Nix\Forms\Renderers\IFormJsValidator</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \Nix\Forms\Renderers\IFormJsValidator
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_wrappers" name="property_wrappers" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$wrappers</h3>
+                <pre class="signature">$wrappers : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; - Wrappers                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_form" name="property_form" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$form</h3>
+                <pre class="signature">$form : \Nix\Forms\Form</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Nix.Forms.Form.html">\Nix\Forms\Form</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_extendMethods" name="property_extendMethods" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$extendMethods</h3>
+                <pre class="signature">$extendMethods : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Object.html"><div class="path-wrapper">\Nix\Object</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() : \Nix\Forms\Renderers\FormRenderer</pre>
+                <p><em>Constructor</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html">\Nix\Forms\Renderers\FormRenderer</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setForm" name="method_setForm" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setForm()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setForm(\Nix\Forms\Form  <span class="argument">$form</span>) : \Nix\Forms\Renderers\FormRenderer</pre>
+                <p><em>Sets Form object</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Nix.Forms.Form.html">\Nix\Forms\Form</a></td>
+                                <td>$form </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Nix.Forms.Renderers.FormRenderer.html">\Nix\Forms\Renderers\FormRenderer</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setJsValidator" name="method_setJsValidator" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setJsValidator()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setJsValidator(string|\Nix\Forms\Renderers\IFormJsValidator  <span class="argument">$validator</span>) : </pre>
+                <p><em>Sets javascript validator</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|\Nix\Forms\Renderers\IFormJsValidator</td>
+                                <td>$validator </td>
+                                <td><p>name (just type of renderer - jquery) or object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_render" name="method_render" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">render()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">render(string  <span class="argument">$part = null</span>) : string</pre>
+                <p><em>Renders form $part</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$part </td>
+                                <td><p>part of form</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_extendMethod" name="method_extendMethod" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">extendMethod()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">extendMethod(string  <span class="argument">$method</span>, string  <span class="argument">$function</span>) </pre>
+                <p><em>Extends class by $method</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$function </td>
+                                <td><p>callback</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Object.html"><div class="path-wrapper">\Nix\Object</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getClass" name="method_getClass" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getClass()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getClass() : string</pre>
+                <p><em>Returns class name</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Object.html"><div class="path-wrapper">\Nix\Object</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAncestors" name="method_getAncestors" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAncestors()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAncestors() : array</pre>
+                <p><em>Returns class ancestors</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Object.html"><div class="path-wrapper">\Nix\Object</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___get" name="method___get" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__get(  <span class="argument">$key</span>) : mixed</pre>
+                <p><em>Magic getter method</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$key </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Nix\OutOfBoundsException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Object.html"><div class="path-wrapper">\Nix\Object</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___set" name="method___set" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__set()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__set(  <span class="argument">$key</span>,   <span class="argument">$value</span>) : mixed</pre>
+                <p><em>Magic setter method</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$key </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Nix\OutOfBoundsException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Object.html"><div class="path-wrapper">\Nix\Object</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___call" name="method___call" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__call()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__call(mixed  <span class="argument">$method</span>, mixed  <span class="argument">$args</span>) : mixed</pre>
+                <p><em>Interface __call()</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$method </td>
+                                <td><p>method name</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Nix\BadMethodCallException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Object.html"><div class="path-wrapper">\Nix\Object</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renderForm" name="method_renderForm" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">renderForm()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renderForm() : string</pre>
+                <p><em>Renders form</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renderStart" name="method_renderStart" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">renderStart()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renderStart() : string</pre>
+                <p><em>Renders form start tag</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renderEnd" name="method_renderEnd" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">renderEnd()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renderEnd() : string</pre>
+                <p><em>Renders form end tag</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renderPart" name="method_renderPart" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">renderPart()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renderPart(array  <span class="argument">$controls = array()</span>, string  <span class="argument">$heading = &#039;&#039;</span>, array  <span class="argument">$attrs = array()</span>) : string</pre>
+                <p><em>Renders body</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$controls </td>
+                                <td><p>controls for rendering</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$heading </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$attrs </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renderPair" name="method_renderPair" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">renderPair()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renderPair(string  <span class="argument">$name</span>) : string</pre>
+                <p><em>Renders block of control and label</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>control name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renderControl" name="method_renderControl" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">renderControl()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renderControl(string  <span class="argument">$name</span>) : string</pre>
+                <p><em>Renders control</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>control name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renderLabel" name="method_renderLabel" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">renderLabel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renderLabel(string  <span class="argument">$name</span>) : string</pre>
+                <p><em>Renders label</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>control name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renderJavascript" name="method_renderJavascript" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">renderJavascript()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renderJavascript() : string</pre>
+                <p><em>Renders javascript</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getWrapper" name="method_getWrapper" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getWrapper()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getWrapper(string  <span class="argument">$type</span>) : \Nix\Forms\Html</pre>
+                <p><em>Returns wrapper object</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>wrapper type</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Nix.Forms.Html.html">\Nix\Forms\Html</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_preparePart" name="method_preparePart" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">preparePart()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">preparePart(\Nix\Forms\Html  <span class="argument">$wrapper</span>, \Nix\Forms\Html  <span class="argument">$heading</span>) : \Nix\Forms\Html</pre>
+                <p><em>Prepares part</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Nix.Forms.Html.html">\Nix\Forms\Html</a></td>
+                                <td>$wrapper </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Nix.Forms.Html.html">\Nix\Forms\Html</a></td>
+                                <td>$heading </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Nix.Forms.Html.html">\Nix\Forms\Html</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_preparePair" name="method_preparePair" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">preparePair()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">preparePair(\Nix\Forms\Html  <span class="argument">$wrapper</span>, \Nix\Forms\Renderers\FormControl  <span class="argument">$control</span>) : \Nix\Forms\Html</pre>
+                <p><em>Prepares pair</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Nix.Forms.Html.html">\Nix\Forms\Html</a></td>
+                                <td>$wrapper </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Nix\Forms\Renderers\FormControl</td>
+                                <td>$control </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Nix.Forms.Html.html">\Nix\Forms\Html</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_prepareControl" name="method_prepareControl" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">prepareControl()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">prepareControl(  <span class="argument">$wrapper</span>,   <span class="argument">$control</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$wrapper </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$control </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_prepareLabel" name="method_prepareLabel" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">prepareLabel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">prepareLabel(  <span class="argument">$wrapper</span>,   <span class="argument">$control</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$wrapper </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$control </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Nix.Forms.Renderers.FormRenderer.html"><div class="path-wrapper">\Nix\Forms\Renderers\FormRenderer</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">DivRenderer.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Forms\Renderers\DivRenderer.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Nix.html">\Nix</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on October 17th, 2014 at 15:15.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
